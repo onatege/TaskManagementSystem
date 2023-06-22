@@ -103,7 +103,9 @@ namespace TaskManagerProject.Controllers
 			if (employee != null)
 			{
 				employee.isDeleted = true;
-				return Ok(employee);
+                _context.Employees.Update(employee);
+                await _context.SaveChangesAsync();
+                return Ok(employee);
 			}
 			return NotFound();
 		}
@@ -120,6 +122,7 @@ namespace TaskManagerProject.Controllers
 			employee.EmailAdress = reworkEmp.EmailAdress;
 			employee.Password = reworkEmp.Password;
 			employee.JobTitle = reworkEmp.JobTitle;
+			_context.Employees.Update(employee);
 			await _context.SaveChangesAsync();
 			return Ok(reworkEmp);
 
