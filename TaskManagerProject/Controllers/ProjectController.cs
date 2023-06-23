@@ -37,7 +37,5 @@ namespace TaskManagerProject.Controllers
 			await _context.SaveChangesAsync();
 			return Ok(project);
 		}
-		
-
     }
 }

@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TaskManagerProject.Context;
+using TaskManagerProject.Contracts;
+using TaskManagerProject.DTOs;
 using TaskManagerProject.Entities;
 
 namespace TaskManagerProject.Controllers
@@ -110,26 +112,29 @@ namespace TaskManagerProject.Controllers
 			return NotFound();
 		}
 
-		[HttpPut("{id}")]
-		public async Task<ActionResult> UpdateEmployee(int id, Employee reworkEmp)
-		{
-			var employee = await _context.Employees.FindAsync(id);
-			if (employee == null)
-			{ return NotFound(); }
+        [HttpPut("{id}")]
+		//[FromBody], request bodymizi interface turune donusturur. Boylece sadece belirli propertylerle islem yapmamiza olanak saglar.
+        public async Task<ActionResult> UpdateEmployee(int id, EmpUpdateDto reworkEmp)
+        {
+            var employee = await _context.Employees.FindAsync(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
 
-			employee.EmployeeName = reworkEmp.EmployeeName;
-			employee.EmployeeStatus = reworkEmp.EmployeeStatus;
-			employee.EmailAdress = reworkEmp.EmailAdress;
-			employee.Password = reworkEmp.Password;
-			employee.JobTitle = reworkEmp.JobTitle;
-			_context.Employees.Update(employee);
-			await _context.SaveChangesAsync();
-			return Ok(reworkEmp);
+            employee.EmployeeName = reworkEmp.EmployeeName;
+            employee.JobTitle = reworkEmp.JobTitle;
+            employee.Password = reworkEmp.Password;
 
-		}
+            _context.Employees.Update(employee);
+            await _context.SaveChangesAsync();
 
+            return Ok(reworkEmp);
+        }
 
 
 
-	}
+
+
+    }
 }

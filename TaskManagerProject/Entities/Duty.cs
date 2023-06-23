@@ -22,7 +22,6 @@ namespace TaskManagerProject.Entities
 		public Project Project { get; set; }
 		public bool Status { get; set; }
 		public bool IsDeleted { get; set; }
-		[JsonIgnore]
 		public ICollection<Comment>? Comments { get; set; }
 
 	}

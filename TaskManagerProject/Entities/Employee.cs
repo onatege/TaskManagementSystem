@@ -16,11 +16,8 @@ namespace TaskManagerProject.Entities
 		public string Password { get; set; }
 		public bool isDeleted { get; set; }
         public bool EmployeeStatus { get; set; }
-		[JsonIgnore]
 		public  ICollection<Duty>? Duties { get; set; }
-		[JsonIgnore]
 		public  ICollection<Project>? Projects { get; set; }
-		[JsonIgnore]
 		public  ICollection<Comment>? Comments { get; set; }
 		
 

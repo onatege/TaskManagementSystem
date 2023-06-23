@@ -15,7 +15,6 @@ namespace TaskManagerProject.Entities
 		public DateTime StartDate { get; set; }
 		public DateTime? EndDate { get; set; }
 		public bool isDeleted { get; set; }
-		[JsonIgnore]
 		public  ICollection<Duty>? Duties { get; set; }
 
 	}
