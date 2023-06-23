@@ -1,6 +1,6 @@
 ﻿namespace TaskManagerProject.DTOs
 {
-    public class DutyAddDto : IDutyAddContract
+    public class DutyAddDto
     {
         public int EmployeeId { get; set; }
         public string TaskName { get; set; }
