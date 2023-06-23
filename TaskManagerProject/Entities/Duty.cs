@@ -10,7 +10,7 @@ namespace TaskManagerProject.Entities
 		public int EmployeeId { get; set; }
 		public Employee Employee { get; set; }
 		public string CreatedBy { get; set; }
-		public string AssignedTo { get; set; }
+		public int AssignedTo { get; set; }
 		//[Required]
 		public string TaskName { get; set; }
 		//[Required]
@@ -20,9 +20,8 @@ namespace TaskManagerProject.Entities
 		public DateTime UpdatedDate { get; set; }
 		public int ProjectId { get; set; }
 		public Project Project { get; set; }
-		public bool Status { get; set; }
+		public bool IsActive { get; set; }
 		public bool IsDeleted { get; set; }
 		public ICollection<Comment>? Comments { get; set; }
-
 	}
 }
