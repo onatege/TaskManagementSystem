@@ -14,7 +14,7 @@ namespace TaskManagerProject.Entities
 		//[Required]
 		public string TaskName { get; set; }
 		//[Required]
-		public string TaskContent { get; set; }
+		public string TaskType { get; set; }
 		public string TaskDescription { get; set; }
 		public DateTime CreatedDate { get; set; }
 		public DateTime UpdatedDate { get; set; }
